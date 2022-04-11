@@ -1,0 +1,255 @@
+{
+  "31337": {
+    "localhost": {
+      "name": "localhost",
+      "chainId": "31337",
+      "contracts": {
+        "YourContract": {
+          "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
+          "abi": [
+            {
+              "inputs": [],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_patientAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "_hospital",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_admissionDate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_dischargeDate",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_visitReason",
+                  "type": "uint256"
+                }
+              ],
+              "name": "addRecord",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_patientAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_recordID",
+                  "type": "uint256"
+                }
+              ],
+              "name": "deleteRecord",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_patientAddress",
+                  "type": "address"
+                }
+              ],
+              "name": "getRecordByAddressMap",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "patient",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "hospital",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "admissionDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "dischargeDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "visitReason",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "thisRecordID",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct YourContract.Records[]",
+                  "name": "",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_patientAddress",
+                  "type": "address"
+                }
+              ],
+              "name": "getRecordByAddressStruct",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "patient",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "hospital",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "admissionDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "dischargeDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "visitReason",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "thisRecordID",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct YourContract.Records[]",
+                  "name": "",
+                  "type": "tuple[]"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_patientAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "_recordID",
+                  "type": "uint256"
+                }
+              ],
+              "name": "getmappingStruct",
+              "outputs": [
+                {
+                  "components": [
+                    {
+                      "internalType": "address",
+                      "name": "patient",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "address",
+                      "name": "hospital",
+                      "type": "address"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "admissionDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "dischargeDate",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "visitReason",
+                      "type": "uint256"
+                    },
+                    {
+                      "internalType": "uint256",
+                      "name": "thisRecordID",
+                      "type": "uint256"
+                    }
+                  ],
+                  "internalType": "struct YourContract.Records",
+                  "name": "",
+                  "type": "tuple"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "recordID",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            },
+            {
+              "inputs": [],
+              "name": "thisRecordID",
+              "outputs": [
+                {
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
+              ],
+              "stateMutability": "view",
+              "type": "function"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
