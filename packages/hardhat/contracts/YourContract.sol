@@ -1,19 +1,18 @@
-pragma solidity >=0.8.0 <0.9.0;
+pragma solidity ^0.8.0;
 //SPDX-License-Identifier: MIT
 
 import "hardhat/console.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "./PayableContract.sol";
 
-// https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
-
-contract YourContract {
+contract YourContract is Payable {
     // EVENTS
 
     // STORAGE, MAPPINGS, STRUCTS
-
     uint256 public recordID = 0;
     uint256 public thisRecordID = 0;
     mapping(uint256 => mapping(address => Records)) records;
+    mapping (address => bool) public isPatient;
+    mapping (address => bool) public isHospital;
     //mapping (address => Records) records;
 
     struct Records {
@@ -28,8 +27,12 @@ contract YourContract {
     Records[] recordsarray;
     Records[] getstructs;
 
-    // FUNCTIONS
+    modifier onlyHospital(uint256 recordID, address _patientAddress) {
+      require(records[recordID][_patientAddress].hospital == msg.sender);
+      _;
+    }
 
+    // FUNCTIONS
     constructor() {
         addRecord(
             0x3719dB98b075Ff10886Fc29431Ffc2006fFF0005,
@@ -46,19 +49,19 @@ contract YourContract {
             2
         );
         addRecord(
-            0x3719dB98b075Ff10886Fc29431Ffc2006fFF0005,
-            0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266,
-            20220333,
-            20220333,
-            9
-        );
-        addRecord(
             0x60814DB6b62fE178d7F91239078e3c20fB857E04,
             0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266,
             20220310,
             20220311,
             3
         );
+        addHospital(
+          0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+          );
+    }
+
+    function addHospital(address _hospital) public onlyOwner{
+        isHospital[_hospital] = true;
     }
 
     function addRecord(
@@ -139,12 +142,7 @@ contract YourContract {
         return rec;
     }
 
-    function deleteRecord(address _patientAddress, uint256 _recordID) public {
+    function deleteRecord(address _patientAddress, uint256 _recordID) public onlyOwner {
         delete records[_recordID][_patientAddress];
     }
-
-    // to support receiving ETH by default
-    receive() external payable {}
-
-    fallback() external payable {}
 }
